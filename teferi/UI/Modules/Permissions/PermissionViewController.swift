@@ -13,7 +13,7 @@ class PermissionViewController : UIViewController
     
     @IBOutlet private weak var titleLabel : UILabel!
     @IBOutlet private weak var descriptionLabel : UILabel!
-    @IBOutlet private weak var remindLaterButton : UIButton!
+    @IBOutlet private weak var secondaryButton : UIButton!
     @IBOutlet private weak var enableButton : UIButton!
     @IBOutlet private weak var mainButtonBottomConstraint : NSLayoutConstraint!
     @IBOutlet private weak var imageView: UIImageView!
@@ -36,9 +36,9 @@ class PermissionViewController : UIViewController
             .subscribe(onNext: onPermissionGiven)
             .addDisposableTo(disposeBag)
         
-        remindLaterButton
+        secondaryButton
             .rx.tap
-            .subscribe(onNext: onRemindLaterTapped)
+            .subscribe(onNext: onSecondaryButtonTapped)
             .addDisposableTo(disposeBag)
         
         initializeBindings()
@@ -55,10 +55,11 @@ class PermissionViewController : UIViewController
         titleLabel.text = viewModel.titleText
         descriptionLabel.text = viewModel.descriptionText
         enableButton.setTitle(viewModel.enableButtonTitle, for: .normal)
-        remindLaterButton.isHidden = !viewModel.remindMeLater
+        secondaryButton.isHidden = viewModel.isSecondaryButtonHidden
+        secondaryButton.setTitle(viewModel.secondaryButtonTitle, for: .normal)
         imageView.image = viewModel.image
         
-        mainButtonBottomConstraint.constant = !viewModel.remindMeLater ? 32 : 70
+        mainButtonBottomConstraint.constant = viewModel.isSecondaryButtonHidden ? 32 : 70
         view.setNeedsLayout()
     }
     
@@ -73,9 +74,9 @@ class PermissionViewController : UIViewController
         viewModel.permissionGiven()
     }
     
-    private func onRemindLaterTapped()
+    private func onSecondaryButtonTapped()
     {
-        viewModel.permissionDeferred()
+        viewModel.secondaryAction()
         hideOverlay()
     }
     

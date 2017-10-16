@@ -48,6 +48,11 @@
 "EditTimeSlotEndTitle" = "End";
 "EditTimeSlotCategoryTitle" = "Category";
 
+"NotificationsPermissionsTitle" = "Hey there!";
+"NotificationsPermissionsDescription" = "Superday would like to send you\nnotifications once in a while.\nWe promise, we won't annoy\nyou too much. 🤓";
+"NotificationsPermissionsEnableButtonTitle" = "Enable notifications";
+"NotificationsPermissionsSecondaryButtonTitle" = "No, thanks";
+
 "Transport" = "Transport";
 "Movement" = "Movement";
 

@@ -4,9 +4,9 @@ import Foundation
 class LocationPermissionViewModel : PermissionViewModel
 {
     // MARK: Public Properties
-    var remindMeLater : Bool
+    var isSecondaryButtonHidden : Bool
     {
-        return false
+        return true
     }
 
     var titleText : String?
@@ -22,6 +22,11 @@ class LocationPermissionViewModel : PermissionViewModel
     var enableButtonTitle : String
     {
         return L10n.locationEnableButtonTitle
+    }
+    
+    var secondaryButtonTitle : String?
+    {
+        return nil
     }
     
     var image : UIImage?
@@ -85,7 +90,7 @@ class LocationPermissionViewModel : PermissionViewModel
         settingsService.setUserGaveLocationPermission()
     }
     
-    func permissionDeferred() { }
+    func secondaryAction() {}
     
     // MARK: Private Methods
         

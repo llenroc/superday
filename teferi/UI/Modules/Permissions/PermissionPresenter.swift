@@ -4,6 +4,7 @@ enum PermissionRequestType
 {
     case location
     case motion
+    case notification
 }
 
 class PermissionPresenter
@@ -37,6 +38,8 @@ class PermissionPresenter
             return viewModelLocator.getMotionPermissionViewModel()
         case .location:
             return viewModelLocator.getLocationPermissionViewModel()
+        case .notification:
+            return viewModelLocator.getNotificationPermissionViewModel()
         }
     }
     

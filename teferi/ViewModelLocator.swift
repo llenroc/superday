@@ -16,6 +16,7 @@ protocol ViewModelLocator
     
     func getLocationPermissionViewModel() -> PermissionViewModel
     func getMotionPermissionViewModel() -> PermissionViewModel
+    func getNotificationPermissionViewModel() -> PermissionViewModel
     
     func getCMAccessForExistingUsersViewModel() -> CMAccessForExistingUsersViewModel
     
@@ -161,6 +162,15 @@ class DefaultViewModelLocator : ViewModelLocator
     {
         let viewModel = MotionPermissionViewModel(settingsService: self.settingsService,
                                                   appLifecycleService: self.appLifecycleService)
+        
+        return viewModel
+    }
+    
+    func getNotificationPermissionViewModel() -> PermissionViewModel
+    {
+        let viewModel = NotificationPermissionViewModel(notificationService: self.notificationService,
+                                                        settingsService: self.settingsService,
+                                                        appLifecycleService: self.appLifecycleService)
         
         return viewModel
     }

@@ -24,6 +24,8 @@ class MainViewModel : RxViewModel
                     return PermissionRequestType.location
                 } else if self.shouldShowMotionPermissionRequest() {
                     return PermissionRequestType.motion
+                } else if self.shouldShowNotificationPermissionRequest() {
+                    return PermissionRequestType.notification
                 }
                 return nil
             }
@@ -211,5 +213,13 @@ class MainViewModel : RxViewModel
     private func shouldShowMotionPermissionRequest() -> Bool
     {
         return !settingsService.hasCoreMotionPermission
+    }
+    
+    private func shouldShowNotificationPermissionRequest() -> Bool
+    {
+        return
+            settingsService.shouldAskForNotificationPermission &&
+            timeService.now.timeIntervalSince(settingsService.installDate!) >= 24 * 60 * 60 &&
+            !settingsService.hasNotificationPermission
     }
 }

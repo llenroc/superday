@@ -19,6 +19,7 @@ protocol SettingsService
     var hasCoreMotionPermission : Bool { get }
     
     var hasNotificationPermission : Bool { get }
+    var shouldAskForNotificationPermission : Bool { get }
     
     var userEverGaveLocationPermission : Bool { get }
     
@@ -44,7 +45,10 @@ protocol SettingsService
     func setUserGaveLocationPermission()
     
     func setCoreMotionPermission(userGavePermission: Bool)
-        
+    
+    func setUserRejectedNotificationPermission()
+    func setShouldAskForNotificationPermission()
+    
     func setWelcomeMessageShown()
     
     func setVote(forDate date: Date)

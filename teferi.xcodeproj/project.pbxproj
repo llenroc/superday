@@ -233,6 +233,7 @@
 		AC9718451F4734570027E761 /* TimelineProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9718441F4734570027E761 /* TimelineProcessorTests.swift */; };
 		ACC11D601F90DDB50025809C /* TimeLineHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC11D5F1F90DDB50025809C /* TimeLineHelper.swift */; };
 		ACCAFD251E8BDF490097F037 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCAFD241E8BDF490097F037 /* NotificationType.swift */; };
+		ACCB63391F950D1200B1A40D /* NotificationPermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCB63381F950D1200B1A40D /* NotificationPermissionViewModel.swift */; };
 		ACCF034B1F8FD8F000F3DCFF /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF034A1F8FD8F000F3DCFF /* Annotation.swift */; };
 		ACCF034E1F90A12C00F3DCFF /* MultiSlotHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF034C1F90A12C00F3DCFF /* MultiSlotHeaderCell.swift */; };
 		ACCF034F1F90A12C00F3DCFF /* MultiSlotHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACCF034D1F90A12C00F3DCFF /* MultiSlotHeaderCell.xib */; };
@@ -540,6 +541,7 @@
 		AC9718441F4734570027E761 /* TimelineProcessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineProcessorTests.swift; sourceTree = "<group>"; };
 		ACC11D5F1F90DDB50025809C /* TimeLineHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineHelper.swift; sourceTree = "<group>"; };
 		ACCAFD241E8BDF490097F037 /* NotificationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
+		ACCB63381F950D1200B1A40D /* NotificationPermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionViewModel.swift; sourceTree = "<group>"; };
 		ACCF034A1F8FD8F000F3DCFF /* Annotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		ACCF034C1F90A12C00F3DCFF /* MultiSlotHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSlotHeaderCell.swift; sourceTree = "<group>"; };
 		ACCF034D1F90A12C00F3DCFF /* MultiSlotHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultiSlotHeaderCell.xib; sourceTree = "<group>"; };
@@ -1197,6 +1199,7 @@
 			children = (
 				8CBE30A11ECC5385007C8F6F /* PermissionPresenter.swift */,
 				BEDE5B391E4A3F260082FFC3 /* LocationPermissionViewModel.swift */,
+				ACCB63381F950D1200B1A40D /* NotificationPermissionViewModel.swift */,
 				8C37F4C61F7E4514008B75E8 /* MotionPermissionViewModel.swift */,
 				BEDE5B3B1E4A3F3C0082FFC3 /* PermissionViewController.swift */,
 				AC449C301E92BC8C00847957 /* PermissionViewModelProtocol.swift */,
@@ -1759,6 +1762,7 @@
 				8CDB55731F755D0400FAD466 /* LoadingIndicator.swift in Sources */,
 				8C1729021EF02D9A002ABDDA /* SummaryViewController.swift in Sources */,
 				24564F4E1D83207900D9A8AE /* TimelineViewModel.swift in Sources */,
+				ACCB63391F950D1200B1A40D /* NotificationPermissionViewModel.swift in Sources */,
 				8C460E831EE704500002D70B /* ButtonsCollectionView.swift in Sources */,
 				246531701DA7B4150066DFE0 /* NotificationService.swift in Sources */,
 				24B03B5D1D9E4DA300452D16 /* DefaultSettingsService.swift in Sources */,

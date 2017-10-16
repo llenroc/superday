@@ -513,7 +513,7 @@ To help us make Superday even better, please allow it to access your Motion Data
                         <outlet property="enableButton" destination="Qg8-dF-7h9" id="Dcw-bv-MN5"/>
                         <outlet property="imageView" destination="Bk5-8r-ALE" id="1vG-s3-8R6"/>
                         <outlet property="mainButtonBottomConstraint" destination="L7v-kO-4F0" id="K07-l9-rJu"/>
-                        <outlet property="remindLaterButton" destination="22r-Kh-duN" id="9ML-2q-IUN"/>
+                        <outlet property="secondaryButton" destination="22r-Kh-duN" id="Ifp-NN-KUR"/>
                         <outlet property="titleLabel" destination="1g8-ZH-8kH" id="dQC-Zp-rsa"/>
                     </connections>
                 </viewController>

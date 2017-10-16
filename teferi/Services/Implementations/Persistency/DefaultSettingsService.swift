@@ -60,8 +60,14 @@ class DefaultSettingsService : SettingsService
     
     var hasNotificationPermission : Bool
     {
+        guard !getBool(forKey: userRejectedNotificationPermissionKey) else { return true }
         let notificationSettings = UIApplication.shared.currentUserNotificationSettings
         return notificationSettings?.types.contains([.alert, .badge]) ?? false
+    }
+    
+    var shouldAskForNotificationPermission : Bool
+    {
+        return getBool(forKey: shouldAskForNotificationPermissionKey)
     }
     
     var userEverGaveLocationPermission: Bool
@@ -101,6 +107,7 @@ class DefaultSettingsService : SettingsService
     private let lastLocationHorizontalAccuracyKey = "lastLocationHorizongalAccuracy"
     private let userGaveLocationPermissionKey = "canIgnoreLocationPermission"
     private let userGaveMotionPermissionKey = "userGaveMotionPermissionKey"
+    private let userRejectedNotificationPermissionKey = "userRejectedNotificationPermission"
     private let welcomeMessageShownKey = "welcomeMessageShown"
     private let votingHistoryKey = "votingHistory"
     private let lastShownWeeklyRatingKey = "lastShownWeeklyRating"
@@ -108,6 +115,7 @@ class DefaultSettingsService : SettingsService
     private let isPostCoreMotionUserKey = "isPostCoreMotionUser"
     private let hasCoreMotionPermissionKey = "hasCoreMotionPermission"
     private let lastTimelineGenerationDateKey = "lastTimelineGenerationDate"
+    private let shouldAskForNotificationPermissionKey = "shouldAskForNotificationPermission"
     
     //MARK: Initialiazers
     init (timeService : TimeService)
@@ -155,6 +163,16 @@ class DefaultSettingsService : SettingsService
     {
         set(true, forKey: userGaveMotionPermissionKey)
         set(userGavePermission, forKey: hasCoreMotionPermissionKey)
+    }
+    
+    func setUserRejectedNotificationPermission()
+    {
+        set(true, forKey: userRejectedNotificationPermissionKey)
+    }
+    
+    func setShouldAskForNotificationPermission()
+    {
+        set(true, forKey: shouldAskForNotificationPermissionKey)
     }
     
     func setWelcomeMessageShown()

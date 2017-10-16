@@ -25,14 +25,6 @@ class NavigationPresenter : NSObject
         return viewController
     }
     
-    func showPermissionController(type: PermissionRequestType)
-    {
-        let vc = PermissionPresenter.create(with: viewModelLocator, type: type)
-        vc.modalPresentationStyle = .custom
-        vc.modalTransitionStyle = .crossDissolve
-        viewController.present(vc, animated: true)
-    }
-    
     func toggleCalendar()
     {
         if let _ = calendarViewController {

@@ -89,6 +89,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate
         setVersionInSettings()
         setAppearance()
         
+        if settingsService.isFirstTimeAppRuns
+        {
+            settingsService.setShouldAskForNotificationPermission()
+        }
+        
         if !settingsService.didShowWelcomeMessage
         {
             settingsService.setIsFirstTimeAppRuns()
