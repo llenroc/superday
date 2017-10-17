@@ -36,8 +36,7 @@ class NotificationPermissionViewModel : PermissionViewModel
     
     var permissionGivenObservable : Observable<Void>
     {
-        return self.appLifecycleService
-            .movedToForegroundObservable
+        return self.appLifecycleService.movedToForegroundObservable
             .map { [unowned self] in
                 return self.settingsService.hasNotificationPermission
             }
@@ -45,9 +44,11 @@ class NotificationPermissionViewModel : PermissionViewModel
             .mapTo(())
     }
     
+    private let hideOverlaySubject = PublishSubject<Void>()
+    
     private(set) lazy var hideOverlayObservable : Observable<Void> =
     {
-        return self.appLifecycleService.movedToForegroundObservable
+        return Observable.of(self.appLifecycleService.movedToForegroundObservable, self.hideOverlaySubject.asObservable()).merge()
             .map(self.overlayVisibilityState)
             .filter{ !$0 }
             .mapTo(())
@@ -74,7 +75,15 @@ class NotificationPermissionViewModel : PermissionViewModel
     
     func getUserPermission()
     {
-        notificationService.requestNotificationPermission(completed: {})
+        notificationService.requestNotificationPermission(completed: { [unowned self] in
+
+            if !self.settingsService.hasNotificationPermission
+            {
+                self.settingsService.setUserRejectedNotificationPermission()
+            }
+            
+            self.hideOverlaySubject.on(.next())
+        })
     }
     
     func permissionGiven() {}

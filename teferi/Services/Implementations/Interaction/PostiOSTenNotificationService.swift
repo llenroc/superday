@@ -29,7 +29,11 @@ class PostiOSTenNotificationService : NotificationService
     func requestNotificationPermission(completed: @escaping () -> ())
     {
         notificationCenter.requestAuthorization(options: [.alert, .sound, .badge],
-                                                completionHandler: { (granted, error) in completed() })
+                                                completionHandler: { (granted, error) in
+                                                    DispatchQueue.main.async {
+                                                        completed()
+                                                    }
+                                                })
     }
     
     func scheduleNormalNotification(date: Date, title: String, message: String)
