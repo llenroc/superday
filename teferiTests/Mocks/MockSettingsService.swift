@@ -4,7 +4,6 @@ import RxSwift
 
 class MockSettingsService : SettingsService
 {
-    
     //MARK: Properties
     var nextSmartGuessId = 0
     var installDate : Date? = Date()
@@ -20,6 +19,7 @@ class MockSettingsService : SettingsService
     
     var hasLocationPermission = true
     var hasNotificationPermission = true
+    var shouldAskForNotificationPermission = false
     var hasCoreMotionPermission = true
     var isFirstTimeAppRuns = false
     var isPostCoreMotionUser = true
@@ -69,6 +69,16 @@ class MockSettingsService : SettingsService
     func setCoreMotionPermission(userGavePermission: Bool)
     {
         hasCoreMotionPermission = userGavePermission
+    }
+    
+    func setUserRejectedNotificationPermission()
+    {
+        hasNotificationPermission = true
+    }
+    
+    func setShouldAskForNotificationPermission()
+    {
+        shouldAskForNotificationPermission = true
     }
     
     func setWelcomeMessageShown()

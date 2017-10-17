@@ -106,6 +106,13 @@ class MockLocator : ViewModelLocator
         return viewModel
     }
     
+    func getNotificationPermissionViewModel() -> PermissionViewModel
+    {
+        return NotificationPermissionViewModel(notificationService: notificationService,
+                                               settingsService: settingsService,
+                                               appLifecycleService: appLifecycleService)
+    }
+    
     func getCMAccessForExistingUsersViewModel() -> CMAccessForExistingUsersViewModel
     {
         return CMAccessForExistingUsersViewModel(settingsService: settingsService, motionService: motionService)

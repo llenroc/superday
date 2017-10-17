@@ -38,6 +38,6 @@ class LocationPermissionViewModelTests : XCTestCase
         
         appLifecycleService.publish(.movedToForeground(withDailyVotingNotificationDate: nil))
         
-        expect(self.viewModel.remindMeLater).to(beFalse())
+        expect(self.viewModel.isSecondaryButtonHidden).to(beTrue())
     }
 }
