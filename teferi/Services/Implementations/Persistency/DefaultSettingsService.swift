@@ -93,7 +93,7 @@ class DefaultSettingsService : SettingsService
     var motionPermissionGranted: Observable<Bool>
     {
         return UserDefaults.standard.rx.observe(Bool.self, hasCoreMotionPermissionKey)
-            .filterNil().debug()
+            .filterNil()
     }
     
     //MARK: Private Properties

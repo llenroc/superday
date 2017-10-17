@@ -120,7 +120,6 @@ class MainNavigationViewModelTests : XCTestCase
     {
         let observer = scheduler.createObserver(String.self)
         viewModel.title
-            .debug()
             .subscribe(observer)
             .addDisposableTo(disposeBag)
         
